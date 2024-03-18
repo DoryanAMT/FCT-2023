@@ -1,0 +1,91 @@
+main{
+    /* width: fit-content; */
+    width: 40vw;
+}
+h1{
+    padding: 1rem 0;
+    text-align: center;
+}
+.user_data{
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem ;
+}
+
+.user_data input{
+    background-color: rgba(255, 255, 255, 0.111);
+    border: 0px;
+    color: var(--headings-color);
+    margin-left: 0.1rem;
+    padding: 0.5rem;
+    max-width: 60%;
+}
+.img{
+    width: 14rem;
+    height: 14rem;
+}
+label{
+    text-align: left;
+}
+
+.user_data input[type="submit"]{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--link-colorh2);
+}
+
+#remember-me{
+    width: 2rem;
+}
+.form-login, .form-register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    gap:1rem;
+}
+
+.container-input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 70%;
+}
+.form-register>.container-input{
+    width: 80%;
+}
+
+
+.errors{
+    padding: 0 2rem 1rem 2rem;
+    margin: 0 auto;
+    text-align: center;
+    color: var(--text-error);
+}
+
+@media (max-width:1250px) {
+    main{
+        width: 60%;
+        
+    }
+}
+
+@media (max-width:900px) {
+    main{
+        width: 80%;
+    }
+}
+
+@media (max-width:650px) {
+    main{
+        width: 100%;
+
+    }
+    .container-input{
+        width: 100%;
+    }
+    .form-register>.container-input{
+        width: 100%;
+    }
+}

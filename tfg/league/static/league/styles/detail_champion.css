@@ -1,0 +1,95 @@
+main{
+    width: 80%;
+    padding: 3rem;
+}
+.center{
+    text-align: center;
+    font-size: 4rem;
+}
+.item-adjust{
+    width: 4rem;
+    height: 4rem;
+    padding: 0.5px;
+}
+h2{
+    padding-top: 2rem;
+}
+
+
+
+.champion-profile,.champion-items{
+    display: flex;
+}
+.champion-profile{
+    padding-top: 1rem;
+}
+    .champion-title{
+        padding-left: 10px;
+    }
+
+.champion-habilities{
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--background-divs2);
+    width: fit-content;
+}
+
+summary{
+    color: var(--link-colorh2) ;
+    font-size: 1.6rem;
+}
+
+.champion-items{
+    border-radius: 10px;
+    background-color: var(--background-divs2);
+    width: fit-content;
+}
+    .normal-items, .aram-items{
+        padding:1rem;
+       
+    }
+
+.champion-chart{
+    width: 100%;
+    height: 15rem;
+    margin: 1rem;
+}
+
+    .champion-chart-detail{
+        width: 80%;
+        height: 15rem;
+    }
+    
+
+    .canvasjs-chart-container{
+        background-color: var(--background-divs2) !important;
+        color:  var(--background-divs2) !important;
+    }
+    .canvasjs-chart-credit{
+        display: none !important;
+    }
+
+.button-post{
+    color: var(--headings-color);
+}
+    .button-post>a{
+        padding: 10px;
+        background-color: var(--link-colorh2) ;
+        
+    }
+
+.post-detail{
+    width: fit-content;
+    border-radius: 20px;
+    padding: 1rem;
+    background-color: var(--background-divs2);
+    margin: 0.5rem;
+
+}
+.radious{
+    border-radius: 50%;
+}
+
+svg{
+    color: white;
+}

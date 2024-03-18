@@ -1,0 +1,35 @@
+{%extends 'tfg/base.html'%}  
+
+{% block link %}
+    {%load static%} 
+    <link rel="stylesheet" type="text/css" href="{% static 'league/styles/login.css' %}">
+
+{% endblock %}
+
+{%block title %}League of Leguends{% endblock %}
+{% block content %}
+   
+    <div class="user_data">
+        <h1>Registro</h1>
+        <form class="form-register" action="" method="post">
+            {% csrf_token %}
+                {% for field in form %}
+                    <div class="container-input">
+                       
+                        <label for="{{field.label}}">  {{field.label}} 
+                        </label>
+                        {{field}}
+                    </div>
+                {% endfor %}
+            <input type="submit" value="Create User">
+        </form>
+    </div>
+   
+    {% if messages %}
+    <div class="errors">
+        {% for message in messages%}
+            <p>{{message|linebreaks}}</p>
+        {% endfor%}  
+    </div>  
+    {% endif %} 
+{% endblock %}

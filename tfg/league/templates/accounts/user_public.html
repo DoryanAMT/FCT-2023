@@ -1,0 +1,73 @@
+
+
+{%extends 'tfg/base.html'%}  
+
+{% block link %}
+    {%load static%} 
+        <link rel="stylesheet" type="text/css" href="{% static 'league/styles/user_public.css' %}">
+{% endblock %}
+
+{%block title %} {{user.nb_user}} {% endblock %}
+{% block content %}
+    <div class="data_user">
+        <div class="data-img">
+            <img src="{{user.photo_user.url}}" alt="foto de {{user.nb_user}}">
+        </div>
+        <div class="data">
+            <h2> {{user.nb_user}}</h2>
+            <h4><i>"{{user.nick_name_user}}"</i></h4>
+            <p> 
+                <svg width="20" height="20" fill="currentColor" class="bi bi-calendar2-minus-fill" viewBox="0 0 16 16">
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zM6 10a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6z"></path>
+                </svg>
+                Date joined: {{user.date_joined_user}}</p>
+            <div class="private-data">
+                {% if currentUser.user == user %}
+                <p>
+                    <svg width="20" height="20" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                        <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"></path>
+                        <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"></path>
+                      </svg>
+                    <a href=" {% url 'accountsettings'%} ">Configurar mi cuenta</a></p>
+                <p>
+                    <svg width="20" height="20" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"></path>
+                        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"></path>
+                      </svg>
+                    <a href="{% url 'logout'%}">Cerrar sesión</a></p>
+                {% endif %}
+            </div>
+            
+        </div>
+    </div>
+    {% if posts %}
+    <div class="posts_list">
+        <h3>Mis builds</h3>
+        {% for post in posts %}
+            <div class="post">
+                <div class="header-post">
+                    <!-- parametros: 'nombre url' la variable del modelo, en este caso de la api el modelo Champion  -->
+                        {% for champion in champions %}
+                            {% if champion.name ==  post.champion %}
+                                <a href="{% url 'detail' champion.name %}"><img src="{{champion.image.url}}" alt="{{champion.name}}" class="item"></a>
+                            {% endif %} 
+                        {% endfor %}
+                    <h2>{{post.tittle_post}}</h2>
+                </div>
+                <div class="content-post">
+                    <img src="/media/imagen/league/item/{{post.items1}}" alt="{{post.items1}}" class="item">
+                    <img src="/media/imagen/league/item/{{post.items2}}" alt="{{post.items2}}" class="item">
+                    <img src="/media/imagen/league/item/{{post.items3}}" alt="{{post.items3}}" class="item">
+                    <img src="/media/imagen/league/item/{{post.items4}}" alt="{{post.items4}}" class="item">
+                    <img src="/media/imagen/league/item/{{post.items5}}" alt="{{post.items5}}" class="item">
+                    <img src="/media/imagen/league/item/{{post.items6}}" alt="{{post.items6}}" class="item">
+                    <img src="/media/imagen/league/summoner_spells/{{post.summoner_spells1}}" alt="{{post.summoner_spells1}}" class="item">
+                    <img src="/media/imagen/league/summoner_spells/{{post.summoner_spells2}}" alt="{{post.summoner_spells2}}" class="item">
+                    <img src="{{post.keystone}}" alt="{{post.keystone}}" class="item">
+                </div>
+            
+            </div>    
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endblock %}

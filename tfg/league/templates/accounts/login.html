@@ -1,0 +1,43 @@
+{%extends 'tfg/base.html'%}  
+
+{% block link %}
+    {%load static%} 
+        <link rel="stylesheet" type="text/css" href="{% static 'league/styles/login.css' %}">
+{% endblock %}
+
+{%block title %}Inicio de sesión{% endblock %}
+{% block content %}
+    <h1>Inicio de sesión</h1>   
+    
+    <div class="user_data">
+        <img src="/media/imagen/users/password_image.png" alt="imagen de una cerradura" class="img">
+        <form class="form-login" action="" method="POST">
+            {% csrf_token %}
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{request.GET.next}}">
+            {% endif %}
+            <div class="container-input">
+                <label for="username"> Usuario 
+                </label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div class="container-input">
+                <label for="password"> Contraseña 
+                </label>
+                <input type="password" name="password" id="password">
+            </div>
+            <label for="remember-me">Recordar usuario
+                <input type="checkbox" id="remember-me" name="remember-me">
+            </label>
+            <input type="submit" value="Acceder">
+            <p><b><a href="{% url 'reset_password'%}">¿Olvidaste la contraseña??</a></b></p>
+        </form>
+    </div>
+    {% if messages %}
+    <div class="errors">
+        {% for message in messages%}
+            <p>{{message}}</p>
+        {% endfor%}  
+    </div>  
+    {% endif %}
+{% endblock %}

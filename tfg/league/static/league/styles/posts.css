@@ -1,0 +1,43 @@
+main{
+    width: 60%;
+    margin: 0 auto;
+    background-color: var(--background-divs);
+    padding-top:1rem ;
+    padding-bottom:1rem ;
+    text-align: center;
+}
+
+.post{
+    margin:0 auto;
+    width: fit-content;
+    border-radius: 10px;
+
+    background-color: var(--background-divs2);
+}
+
+h2{
+    padding-left: 6px;
+}
+
+.header-post{
+    margin-top:1rem ;
+    padding: 1rem 1rem 0rem 1rem;
+    display: flex;
+    justify-content: flex-start;
+}
+.content-post{
+    padding: 1rem;
+}
+.item{
+    width: 4rem;
+    height: 4rem;
+}
+
+.user-profile, .content-post>a>img {
+    border-radius: 50%;
+}
+@media (max-width:900px) {
+    main{
+        width: 80%;
+    }
+}
